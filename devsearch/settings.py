@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://boiling-peak-10392.herokuapp.com/', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -127,11 +127,11 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    }
+}
 #
 # DATABASES['default'] = dj_database_url.config(
 #     default='postgres://sypwckryhbyuwf:79f6bcbe9347669994ff6cbe2203b6e635fca041322bc642eb12d7dc92563488@ec2-52-204-196-4.compute-1.amazonaws.com:5432/d8s9jedkmm17ls')
@@ -140,16 +140,16 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 # DATABASES['default'].update(db_form_env)
 
 # set postgresql db
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DevSearch',
-        'USER': 'postgres',
-        'PASSWORD': '12345vahid6',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'DevSearch',
+#         'USER': 'postgres',
+#         'PASSWORD': '12345vahid6',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
