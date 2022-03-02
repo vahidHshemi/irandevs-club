@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+{% block content %}
+<!--    In any template that uses a POST form, -->
+<!--    use the csrf_token tag inside the <form> element if the form is for an internal URL, e.g.:-->
+
+<!--When you are writing client-side code:-->
+<!--use multipart/form-data when your form includes any <input type="file"> elements-->
+<!--otherwise you can use multipart/form-data or application/x-www-form-urlencoded-->
+<!--but application/x-www-form-urlencoded will be more efficient-->
+
+<!-- action Attribute is used to specify where the form-data is to be sent to the server
+   after submission of the form. It can be used in the <form> element. -->
+
+<!-- Main Section -->
+<main class="formPage my-xl">
+    <div class="content-box">
+        <div class="formWrapper">
+            <a class="backButton" href="{% url 'account' %}"><i class="im im-angle-left"></i></a>
+            <br>
+
+            <form action="" class="form" method="POST" enctype="multipart/form-data">
+                <!-- Input:Text -->
+                {% csrf_token %}  <!-- provides easy-to-use protection against Cross Site Request Forgeries. -->
+                {% for field in form %}
+                <div class="form__field">
+                    <label for="formInput#text">
+                        {{field.label}}
+                    </label>
+                    {{field}}
+                </div>
+                {% endfor %}
+
+                <div class="form__field">
+                    {% for tag in project.tags.all %}
+                    <div class="project-tag tag tag--pill tag--main" data-tag="{{tag.id}}"
+                         data-project="{{project.id}}">{{tag.name}} &#215;
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">Tags</label>
+                    <textarea class="input" name="newtags" placeholder="Add tags here..."></textarea>
+                </div>
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
